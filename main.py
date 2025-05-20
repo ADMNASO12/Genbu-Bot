@@ -33,7 +33,7 @@ async def setupCogs() -> None:
 async def on_ready() -> None:
     await setupCogs()
     await bot.tree.sync()
-    print(f"Online as {bot.user.name}")
+    print(f"Online as {bot.user}")
 
 if(__name__ == "__main__"):
     bot.run(BOT_TOKEN)
