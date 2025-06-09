@@ -1,5 +1,6 @@
 import discord
 import datetime
+from typing import Any
 from config_load import ConfigLoad
 from pymongo import MongoClient
 from discord.ext import commands
@@ -9,7 +10,7 @@ class Remove(commands.Cog):
         self.bot = bot
 
         self.uri = ConfigLoad.load_config()
-        self.client = MongoClient(self.uri)
+        self.client: MongoClient[Any] = MongoClient(self.uri)
         
         self.database = self.client["CustomWords"]
         self.wordsDB = self.database["CustomWords"]
@@ -27,13 +28,14 @@ class Remove(commands.Cog):
         )
         return True
 
+    # Replace with your mod/admin role.
     @commands.command()
     @commands.has_any_role(
         1073747375245496410, 
         1073731640918032517,
         1044529340207087616
     )
-    async def remove(self, ctx: commands.Context, word: str = None) -> None:
+    async def remove(self, ctx: commands.Context[commands.Bot], word: str | None = None) -> None:
         if not ctx.guild:
             return
 
@@ -48,7 +50,11 @@ class Remove(commands.Cog):
                 timestamp = datetime.datetime.now(),
                 color = 0x2f3136
             )
-            embed.set_thumbnail(url = botUser.avatar.url)
+
+            if botUser:
+                if botUser.avatar:
+                    embed.set_thumbnail(url = botUser.avatar.url)
+
             await ctx.channel.send(embed = embed)
 
             return
@@ -62,7 +68,10 @@ class Remove(commands.Cog):
                 timestamp = datetime.datetime.now(),
                 color = 0x2f3136
             )
-            embed.set_thumbnail(url = botUser.avatar.url)
+
+            if botUser and botUser.avatar:
+                embed.set_thumbnail(url = botUser.avatar.url)
+
             await ctx.channel.send(embed = embed)
             
             return
@@ -81,7 +90,9 @@ class Remove(commands.Cog):
                 f"{blueDot} {word}"
             )
         )
-        embed.set_thumbnail(url = botUser.avatar.url)
+
+        if botUser and botUser.avatar:
+            embed.set_thumbnail(url = botUser.avatar.url)
         
         await ctx.channel.send(embed = embed)
 
