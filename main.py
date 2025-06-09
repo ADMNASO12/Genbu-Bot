@@ -21,7 +21,10 @@ cogList = [
     "cogs.events.Leave",
     "cogs.utils.add",
     "cogs.utils.remove",
-    "cogs.utils.cfs"
+    "cogs.utils.cfs",
+    "cogs.events.MsgDel",
+    "cogs.events.MsgEdit",
+    "cogs.utils.game_ping"
 ]
 
 async def setupCogs() -> None:
