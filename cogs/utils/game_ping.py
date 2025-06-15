@@ -23,7 +23,9 @@ class GamePingCommand(commands.Cog):
                     "Những game được hỗ trợ hiện tại và cách dùng:\n" +
                     "* Tên Game: Đấu trường Chân Lý | Sử dụng: `.game tft`\n" + 
                     "* Tên Game: Liên Quân Mobile | Sử dụng: `.game aov`\n" +
-                    "* Tên Game: Liên Minh Huyền Thoại | Sử dụng: `.game lol`\n"
+                    "* Tên Game: Liên Minh Huyền Thoại | Sử dụng: `.game lol`\n" +
+                    "* Tên Game: Genshin Impact | Sử dụng: `.game gi`\n" +
+                    "* Tên Game: Minecraft | Sử dụng: `.game mine`\n"
             ))
             return
 
@@ -48,13 +50,27 @@ class GamePingCommand(commands.Cog):
                 if ctx.guild:
                     game_role = ctx.guild.get_role(1381575713064226898)
 
+            case "gi" | "genshin":
+                game_name = "Genshin Impact"
+
+                if ctx.guild:
+                    game_role = ctx.guild.get_role(1383635475956236409)
+
+            case "mine" | "minecraft":
+                game_name = "Minecraft"
+
+                if ctx.guild:
+                    game_role = ctx.guild.get_role(1383635362844508272)
+
             case _:
                 await ctx.channel.send(content = (
                     f"Game: {game_name} không tồn tại hoặc không được hỗ trợ bởi bot.\n" + 
                     "Những game được hỗ trợ hiện tại và cách dùng:\n" +
                     "* Tên Game: Đấu trường Chân Lý | Sử dụng: `.game tft`\n" + 
                     "* Tên Game: Liên Quân Mobile | Sử dụng: `.game aov`\n" +
-                    "* Tên Game: Liên Minh Huyền Thoại | Sử dụng: `.game lol`\n"
+                    "* Tên Game: Liên Minh Huyền Thoại | Sử dụng: `.game lol`\n" +
+                    "* Tên Game: Genshin Impact | Sử dụng: `.game gi`\n" +
+                    "* Tên Game: Minecraft | Sử dụng: `.game mine`\n"
                 ), allowed_mentions = AllowedMentions(everyone = False, roles = False, users = False))
                 return
             
@@ -71,7 +87,6 @@ class GamePingCommand(commands.Cog):
                 "* Bạn chỉ được phép sử dụng lệnh 5 phút một lần.\n" +
                 f"* Thời gian chờ còn lại: {round(error.retry_after, 1)} giây."
             ))
-
 
 async def setup(bot: commands.Bot) -> None:
     await bot.add_cog(GamePingCommand(bot = bot))
