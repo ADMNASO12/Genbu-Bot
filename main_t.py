@@ -25,7 +25,8 @@ cogList = [
     "cogs.utils.cfs",
     "cogs.events.MsgDel",
     "cogs.events.MsgEdit",
-    "cogs.utils.game_ping"
+    "cogs.utils.game_ping",
+    "cogs.anti_raid.webhook"
 ]
 
 async def setupCogs() -> None:
