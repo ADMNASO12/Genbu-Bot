@@ -1,4 +1,6 @@
 import discord
+import asyncio
+import datetime
 from discord.ext import commands
 from discord import app_commands
 
@@ -8,6 +10,9 @@ Cog = commands.Cog
 
 # Command permission type defined
 AdminRequired = commands.has_guild_permissions(administrator = True)
+
+# Permission
+DisablePerm = discord.Permissions.none()
 
 # Command type defined
 PrefixComand = commands.command()
@@ -32,3 +37,21 @@ AppCommandArgs = app_commands.describe
 
 # Interaction command defined
 SlashContext = discord.Interaction
+
+# Cog event defined
+CogEvent = commands.Cog.listener
+
+# Asyncio
+Sleep = asyncio.sleep
+
+# Embed
+Embed = discord.Embed
+
+# Discord Actions
+WebhookCreate = discord.AuditLogAction.webhook_create
+
+# Time
+TimeStampNow = datetime.datetime.now
+
+# Member
+Member = discord.Member
