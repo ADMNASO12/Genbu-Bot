@@ -1,6 +1,7 @@
 import discord
 import asyncio
 import datetime
+import logging
 from discord.ext import commands
 from discord import app_commands
 
@@ -52,6 +53,17 @@ WebhookCreate = discord.AuditLogAction.webhook_create
 
 # Time
 TimeStampNow = datetime.datetime.now
+TimeStamp = int(datetime.datetime.now(datetime.timezone.utc).timestamp())
 
 # Member
 Member = discord.Member
+
+# Logging
+logging.basicConfig(
+    level = logging.WARNING,
+    format = "[%(asctime)s] [%(levelname)s] %(message)s",
+    datefmt = "%Y-%m-%d %H:%M:%S"
+)
+
+Warning = logging.warning
+Critical = logging.critical
