@@ -1,6 +1,5 @@
 import discord
 import datetime
-import logging
 from typing import overload, Optional
 from discord.ext import commands
 
@@ -8,15 +7,17 @@ class MsgDel(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
         self.log_channel = self.bot.get_channel(1374294073774440528)
-        self.logging = logging.basicConfig(
-            level = logging.WARNING,
-            format = "[%(asctime)s] [%(levelname)s] %(message)s",
-            datefmt = "%Y-%m-%d %H:%M:%S"
-        )
+        self.genbu = 1073730331263373372
     
     @commands.Cog.listener()
     async def on_message_delete(self, msg: discord.Message) -> None:
         if msg.author.bot:
+            return
+        
+        if not msg.guild: 
+            return
+        
+        if msg.guild.id != self.genbu:
             return
         
         msg_text: str = msg.content
@@ -67,11 +68,7 @@ class MsgDel(commands.Cog):
             embed.set_image(url = url)
 
         if isinstance(self.log_channel, discord.TextChannel):
-            await self.log_channel.send(embed = embed)
-
-        else:
-            logging.warning(f"{self.log_channel} is not a text channel.")
-        
+            await self.log_channel.send(embed = embed)        
 
 async def setup(bot: commands.Bot) -> None:
     await bot.add_cog(MsgDel(bot = bot))
