@@ -1,5 +1,5 @@
 from type import (
-    AdminRequired, Cog, Bot, Embed, EmbedGenSlash,
+    AdminRequired, Cog, Bot, Embed, EmbedGenSlash, 
     AppCommandArgs, SlashContext, TextChannel, TimeStampNow,
     ALLOWED_GUILDS
 )
@@ -8,6 +8,7 @@ class EmbedGenerator(Cog):
     def __init__(self, bot: Bot) -> None:
         self.bot = bot
 
+    @AdminRequired
     @EmbedGenSlash
     @AppCommandArgs(
         channel = "Kênh bạn muốn gửi embed",
@@ -19,7 +20,6 @@ class EmbedGenerator(Cog):
         image = "Hình ảnh của embed",
         footer = "Footer của embed"
     )
-    @AdminRequired
     async def embed_send(self, interaction: SlashContext,
                          channel: TextChannel,
                          description: str,
