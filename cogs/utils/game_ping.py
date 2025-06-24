@@ -5,10 +5,17 @@ from discord import AllowedMentions
 class GamePingCommand(commands.Cog):
     def __init__(self, bot: commands.Bot) -> None:
         self.bot = bot
+        self.genbu = 1073730331263373372
 
     @commands.command()
     @commands.cooldown(rate = 1, per = 300, type = commands.BucketType.user)
     async def game(self, ctx: commands.Context[commands.Bot], game_name: str | None = None) -> None:
+        if not ctx.guild:
+            return
+        
+        if ctx.guild.id != self.genbu:
+            return
+
         game_channel_id = 1381577143993237514
 
         if ctx.channel.id != game_channel_id:
