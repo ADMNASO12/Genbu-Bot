@@ -23,6 +23,7 @@ cogList = [
     "cogs.utils.add",
     "cogs.utils.remove",
     "cogs.utils.cfs",
+    "cogs.utils.embed",
     "cogs.events.MsgDel",
     "cogs.events.MsgEdit",
     "cogs.utils.game_ping",
