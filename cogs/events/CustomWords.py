@@ -53,22 +53,22 @@ class CustomWords(commands.Cog):
                 match (bool(msg_text), bool(attachments)):
                     case (True, False):
                         log_msg_text: str = f"""
-    * ID người dùng: {msg.author.id}
-    * Đề cập: {msg.author.mention}
-    * Nội dung tin nhắn: {msg_text}
-    * Phân loại nội dung: Tin nhắn văn bản
-    * Gửi vào lúc: <t:{time_now}>
+* ID người dùng: {msg.author.id}
+* Đề cập: {msg.author.mention}
+* Nội dung tin nhắn: {msg_text}
+* Phân loại nội dung: Tin nhắn văn bản
+* Gửi vào lúc: <t:{time_now}>
 
                         """
                         await self.send_log_msg(msg = log_msg_text)
 
                     case (False, True):
                         log_msg_text: str = f"""
-    * ID người dùng: {msg.author.id}
-    * Đề cập: {msg.author.mention}
-    * Nội dung tin nhắn: Hình ảnh
-    * Phân loại nội dung: Tin nhắn hình ảnh
-    * Gửi vào lúc: <t:{time_now}>
+* ID người dùng: {msg.author.id}
+* Đề cập: {msg.author.mention}
+* Nội dung tin nhắn: Hình ảnh
+* Phân loại nội dung: Tin nhắn hình ảnh
+* Gửi vào lúc: <t:{time_now}>
 
                         """
                         image_url = attachments[0].url
@@ -95,9 +95,6 @@ class CustomWords(commands.Cog):
 
         if isinstance(self.log_channel, discord.TextChannel):
             await self.log_channel.send(embed = embed)
-
-        else:
-            logging.warning(f"{self.log_channel} is not a text channel.")
 
 async def setup(bot: commands.Bot) -> None:
     await bot.add_cog(CustomWords(bot))
