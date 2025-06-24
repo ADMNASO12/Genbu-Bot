@@ -12,6 +12,8 @@ class Add(commands.Cog):
         self.client = MongoClient(self.uri)
         self.database = self.client["CustomWords"]
         self.wordsDB = self.database["CustomWords"]
+        
+        self.genbu = 1073730331263373372
 
     def add_word(self, word: str, msg: str) -> bool:       
         result = self.wordsDB.find_one({"wordsList.word": word})
@@ -34,6 +36,9 @@ class Add(commands.Cog):
     )
     async def add(self, ctx: commands.Context, words: str = None, *, msg: str = None) -> None:
         if not ctx.guild:
+            return
+        
+        if ctx.guild.id != self.genbu:
             return
 
         botUser = ctx.guild.get_member(1334471950755565579)
