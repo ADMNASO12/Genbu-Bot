@@ -2,6 +2,7 @@ import discord
 import json
 from discord.ext import commands
 
+
 # Same main.py, but we test here.
 with open("./config/config_test.json") as configFile:
     data = json.load(configFile)
@@ -38,7 +39,9 @@ async def setupCogs() -> None:
 @bot.event
 async def on_ready() -> None:
     await setupCogs()
-    await bot.tree.sync()
+    # for  guild  in ALLOWED_GUILDS:
+    await bot.tree.sync(guild = discord.Object(id = 1045648454170451988))
+
     print(f"Online as {bot.user}")
 
 
