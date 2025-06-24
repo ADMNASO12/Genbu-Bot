@@ -31,7 +31,12 @@ Category = discord.CategoryChannel
 HasChannelType = discord.ChannelType
 
 # Application command slash name
+ALLOWED_GUILDS = [
+    1045648454170451988,
+    1073730331263373372
+]
 ConfessionSlash = app_commands.command(name = 'confession', description = 'Gửi confession ẩn danh')
+EmbedGenSlash = app_commands.command(name = "embed_send", description = "Gửi embed tới 1 kênh nào đó")
 
 # Application command slash argument
 AppCommandArgs = app_commands.describe
