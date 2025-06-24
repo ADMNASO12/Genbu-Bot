@@ -15,6 +15,8 @@ class Remove(commands.Cog):
         self.database = self.client["CustomWords"]
         self.wordsDB = self.database["CustomWords"]
 
+        self.genbu = 1073730331263373372
+
     def remove_word(self, word: str) -> bool:
         result = self.wordsDB.find_one({"wordsList.word": word})
 
@@ -37,6 +39,9 @@ class Remove(commands.Cog):
     )
     async def remove(self, ctx: commands.Context[commands.Bot], word: str | None = None) -> None:
         if not ctx.guild:
+            return
+        
+        if ctx.guild.id != self.genbu:
             return
 
         botUser = ctx.guild.get_member(1334471950755565579)
