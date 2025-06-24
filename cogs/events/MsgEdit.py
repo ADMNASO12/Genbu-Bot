@@ -8,15 +8,17 @@ class MsgEdit(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
         self.log_channel = self.bot.get_channel(1374294073774440528)
-        self.logging = logging.basicConfig(
-            level = logging.WARNING,
-            format = "[%(asctime)s] [%(levelname)s] %(message)s",
-            datefmt = "%Y-%m-%d %H:%M:%S"
-        )
+        self.genbu = 1073730331263373372
     
     @commands.Cog.listener()
     async def on_message_edit(self, before: discord.Message, after: discord.Message) -> None:
         if before.author.bot:
+            return
+        
+        if not before.guild:
+            return
+        
+        if before.guild.id != self.genbu:
             return
 
         before_text  = before.content
