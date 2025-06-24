@@ -9,7 +9,7 @@ from discord.ext import commands
 class CustomWords(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
-        self.log_channel = self.bot.get_channel(1386563502113820682)
+        self.log_channel = self.bot.get_channel(1386929447827017909)
         self.logging = logging.basicConfig(
             level = logging.WARNING,
             format = "[%(asctime)s] [%(levelname)s] %(message)s",
