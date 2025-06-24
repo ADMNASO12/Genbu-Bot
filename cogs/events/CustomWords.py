@@ -32,20 +32,19 @@ class CustomWords(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message: discord.Message) -> None:
-        genbu = self.bot.get_guild(1073730331263373372)
+        genbu = 1073730331263373372
 
-        if genbu:
-            if message.author.bot:
+        if message.author.bot:
                 return
             
-            if not message.guild:
+        if not message.guild or message.guild.id != genbu:
                 return
 
-            msg = self.find_words(message.content)
-            if msg:
-                await message.channel.send(msg, allowed_mentions = discord.AllowedMentions.none())
+        msg = self.find_words(message.content)
+        if msg:
+            await message.channel.send(msg, allowed_mentions = discord.AllowedMentions.none())
             
-            else:
+        else:
                 msg = message
                 msg_text: str = msg.content
                 attachments = msg.attachments
