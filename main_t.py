@@ -29,6 +29,7 @@ cogList = [
     "cogs.utils.embed",
     "cogs.events.MsgDel",
     "cogs.events.MsgEdit",
+    "cogs.events.random_image",
     "cogs.utils.game_ping",
     "cogs.anti_raid.webhook"
 ]
