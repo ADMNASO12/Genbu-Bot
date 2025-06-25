@@ -3,7 +3,8 @@ import asyncio
 import datetime
 import logging
 from discord.ext import commands
-from discord import app_commands
+from discord import TextInput, app_commands
+from discord.ui import Button, TextInput, Modal, View
 
 # Cog, Bot type defined
 Bot = commands.Bot
@@ -72,3 +73,11 @@ logging.basicConfig(
 
 Warning = logging.warning
 Critical = logging.critical
+
+# View, Button, Modal
+View = View
+Button = Button
+Modal = Modal
+Text = TextInput
+Paragraph = discord.TextStyle.paragraph
+Primary = discord.ButtonStyle.primary
