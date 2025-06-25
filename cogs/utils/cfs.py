@@ -60,7 +60,7 @@ class ReplyField(Modal):
 
 class ReplyButton(View):
     def __init__(self, bot: Bot) -> None:
-        super().__init__()
+        super().__init__(timeout = None)
         self.bot = bot
 
         reply_button = Button(  # type: ignore
