@@ -2,7 +2,9 @@ import discord
 import asyncio
 import datetime
 import logging
-from discord.ext import commands
+import requests
+from asyncio import tasks
+from discord.ext import commands, tasks
 from discord import TextInput, app_commands
 from discord.ui import Button, TextInput, Modal, View
 
@@ -81,3 +83,9 @@ Modal = Modal
 Text = TextInput
 Paragraph = discord.TextStyle.paragraph
 Primary = discord.ButtonStyle.primary
+
+# Task loop
+TaskLoop = tasks.loop
+
+# Request
+RequestGet= requests.get
