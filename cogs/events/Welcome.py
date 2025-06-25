@@ -39,7 +39,9 @@ class WelcomeManager(Cog):
             timestamp = TimeStampNow()
         )
         embed.set_footer(text = f"Bạn hiện là thành viên thứ: {member.guild.member_count} của {member.guild.name}")
-        embed.set_thumbnail(url = f"{member.avatar.url if member.avatar else None}")
+        
+        if member.avatar:
+            embed.set_thumbnail(url = f"{member.avatar.url}")
         embed.set_image(url = self.gif_welcome)
 
         await self.welcome_channel.send(embed = embed)
