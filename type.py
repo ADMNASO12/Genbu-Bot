@@ -20,6 +20,7 @@ DisablePerm = discord.Permissions.none()
 
 # Command type defined
 PrefixComand = commands.command()
+OwnerOnly = commands.is_owner()
 Context = commands.Context[commands.Bot]
 
 # Error type defined
@@ -88,4 +89,4 @@ Primary = discord.ButtonStyle.primary
 TaskLoop = tasks.loop
 
 # Request
-RequestGet= requests.get
+RequestGet = requests.get
