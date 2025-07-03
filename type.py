@@ -90,3 +90,9 @@ TaskLoop = tasks.loop
 
 # Request
 RequestGet = requests.get
+
+# Discord Invite
+Invite = discord.Invite
+
+# Fallback constain
+FALLBACK_THUMBNAIL = "https://images-ext-1.discordapp.net/external/hjLpsPI27iRAXx-cF_exYtbwFBJtEl2yfgQwUXZ3_rc/%3Fsize%3D1024/https/cdn.discordapp.com/icons/1043589382671708243/c45fbe666050ab448ab0cf68c14c2284.png?format=webp&quality=lossless&width=584&height=584"
