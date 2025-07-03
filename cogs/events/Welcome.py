@@ -34,7 +34,7 @@ class WelcomeManager(Cog):
         embed = Embed(
             title = "Chào mừng bạn đã tham gia Genbu Impact",
             description = (
-                f"* {member.name} vừa tham gia Genbu Impact\n\n" +
+                f"* {member.name} vừa tham gia {member.guild.name}\n\n" +
                 f"* Tham gia vào lúc: <t:{TimeStamp}>\n\n" + 
                 f"* Đọc quy tắc máy chủ tại đây: {(
                     member.guild.rules_channel.mention
