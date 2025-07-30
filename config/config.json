@@ -1,5 +1,5 @@
 {
-    "BOT_TOKEN": "YOUR_BOT_TOKEN_HERE",
-    "BOT_PREFIX": "YOUR_BOT_PREFIX_HERE",
-    "MONGO_DB_ENV": "YOUR_MONGODB_ENV_HERE"
+    "BOT_TOKEN": "MTQwMDEyMTk1MTAwMzA4Mjc4Mg.GAKBQs.1uPKGJVr39Yuydt-m-nzJ0wDvsKTWcmamdC4mY",
+    "BOT_PREFIX": ">",
+    "MONGO_DB_ENV": "mongodb+srv://wibuboy5:wibuboy5@projectdiscord.rjurlf5.mongodb.net/?retryWrites=true&w=majority"
 }
