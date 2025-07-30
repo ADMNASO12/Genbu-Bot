@@ -1,5 +1,5 @@
 config/config.json
 .venv
 __pycache__
-config/config_test.json
+config/config.json
 sandbox
